@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>华体会 · 简明使用指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f7f9;
+            color: #1b2e35;
+            line-height: 1.6;
+            padding: 20px 16px;
+        }
+
+        .page-wrap {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #e2f0f3 0%, #c5dfe6 100%);
+            border-radius: 28px;
+            padding: 36px 30px 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 18px rgba(0, 50, 60, 0.05);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: #0f4a55;
+            margin-bottom: 12px;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: #1f5d6b;
+            background: rgba(255, 255, 255, 0.5);
+            display: inline-block;
+            padding: 4px 16px;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            color: #173f49;
+            max-width: 600px;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #11515e;
+            margin: 32px 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #6fbecf, transparent);
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: #ffffffd9;
+            backdrop-filter: blur(2px);
+            border-radius: 18px;
+            padding: 22px 18px;
+            box-shadow: 0 4px 12px rgba(0, 70, 80, 0.04);
+            border: 1px solid #d2e7ed;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            background: white;
+            border-color: #8ac6d6;
+            box-shadow: 0 8px 20px rgba(0, 80, 90, 0.06);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #126675;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card h3::before {
+            content: '✦';
+            color: #3aa6b9;
+            font-size: 1.1rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #264d57;
+        }
+
+        .accent-box {
+            background: #d9eef3;
+            border-left: 6px solid #2a95aa;
+            border-radius: 0 20px 20px 0;
+            padding: 22px 24px;
+            margin: 28px 0;
+        }
+
+        .accent-box strong {
+            color: #0b4e5c;
+        }
+
+        .faq-item {
+            background: #f6fbfd;
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin: 10px 0;
+            border: 1px solid #cde4eb;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #105b69;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .faq-item .a {
+            color: #2a545e;
+            font-size: 0.95rem;
+        }
+
+        .link-sentence {
+            margin: 24px 0;
+            padding: 14px 20px;
+            background: #ffffff;
+            border-radius: 40px;
+            border: 1px solid #bdd9e2;
+            display: inline-block;
+            font-size: 0.98rem;
+        }
+
+        .link-sentence a {
+            color: #1b7c8f;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1.5px dotted #4eaec3;
+            padding-bottom: 1px;
+            transition: 0.15s;
+        }
+
+        .link-sentence a:hover {
+            color: #0f4f5e;
+            border-bottom: 1.5px solid #0f4f5e;
+        }
+
+        .footnote {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #c7dde4;
+            font-size: 0.85rem;
+            color: #43737e;
+        }
+
+        @media (max-width: 500px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero {
+                padding: 28px 20px;
+            }
+            .grid-cards {
+                grid-template-columns: 1fr;
+            }
+            .accent-box {
+                padding: 16px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- HERO 简明说明 -->
+    <div class="hero">
+        <h1>华体会 · 简明使用指南</h1>
+        <span class="tagline">产品摘要 · 访问提醒</span>
+        <p>一份整理过的说明，帮你快速了解平台特点、使用场景以及需要注意的细节。适合第一次接触或想重新熟悉的朋友。</p>
+    </div>
+
+    <!-- 亮点卡片网格 -->
+    <div class="section-title">亮点速览</div>
+    <div class="grid-cards">
+        <div class="card">
+            <h3>轻量体验</h3>
+            <p>界面去繁就简，主要功能一目了然，减少浏览中的干扰，更聚焦在内容本身。</p>
+        </div>
+        <div class="card">
+            <h3>多场景兼容</h3>
+            <p>无论使用移动端还是桌面设备，布局与操作逻辑都经过适配，保持一致的流畅感。</p>
+        </div>
+        <div class="card">
+            <h3>信息结构清晰</h3>
+            <p>分类与导航偏重实用性，让查阅或浏览时不至于迷失在多层菜单中。</p>
+        </div>
+        <div class="card">
+            <h3>持续更新</h3>
+            <p>平台会根据反馈与趋势调整内容布局，保持一定的新鲜度与可靠性。</p>
+        </div>
+    </div>
+
+    <!-- 使用建议 + 自然链接 -->
+    <div class="section-title">使用建议</div>
+    <div class="accent-box">
+        <p><strong>初次访问</strong> 建议先浏览主要分区，对整体内容范围建立大致印象。对于感兴趣的部分，可以利用站内导航逐步深入。</p>
+        <p style="margin-top: 14px;"><strong>频繁使用时</strong> 可以留意首页或板块的更新提示，有时会有结构微调或新内容加入。如果你已经熟悉基础功能，直接前往你想了解的模块会更高效。</p>
+        <p style="margin-top: 14px;">如需了解更多细节，可参考 <a href="https://main-cns-huatihui.com" style="color:#0d5d6c; font-weight:500; text-decoration:underline; text-underline-offset:3px;">华体会</a> 上的内容分类，那里整理了更完整的索引。</p>
+    </div>
+
+    <!-- 场景卡片（替代固定的特点） -->
+    <div class="section-title">常见适用场景</div>
+    <div class="grid-cards">
+        <div class="card">
+            <h3>信息查阅</h3>
+            <p>当需要快速获取某个主题的基本资料时，平台的结构化呈现能节省筛选时间。</p>
+        </div>
+        <div class="card">
+            <h3>日常浏览</h3>
+            <p>碎片时间里打开，看看更新的条目或推荐内容，没有强目的性也能有所收获。</p>
+        </div>
+        <div class="card">
+            <h3>对比参考</h3>
+            <p>对同一类内容进行横向比较时，平台的分栏与列表形式提供了便利。</p>
+        </div>
+    </div>
+
+    <!-- 访问提示 + FAQ -->
+    <div class="section-title">访问提醒 · 常见问题</div>
+
+    <div class="faq-item">
+        <span class="q">❓ 访问是否稳定？</span>
+        <span class="a">服务大部分时间运行平稳，偶尔会因维护或网络波动短暂调整，属正常情况。</span>
+    </div>
+    <div class="faq-item">
+        <span class="q">❓ 内容是否可靠？</span>
+        <span class="a">平台所呈现的信息均经过必要的整理与校验，但建议结合多方来源做最终判断。</span>
+    </div>
+    <div class="faq-item">
+        <span class="q">❓ 移动端体验如何？</span>
+        <span class="a">页面已针对手机屏幕做响应式适配，卡片和按钮间距适合触控，浏览流畅。</span>
+    </div>
+
+    <!-- 可信任但克制的补充说明 -->
+    <div style="background: #ecf6f9; border-radius: 24px; padding: 18px 22px; margin: 24px 0;">
+        <p style="color: #145a68;">🔍 本页面仅为产品说明式介绍，不包含诱导点击或夸大承诺。建议你根据自己的需求和判断合理使用平台功能，享受更清晰的信息体验。</p>
+    </div>
+
+    <!-- 包含链接的句子（自然嵌入） -->
+    <div class="link-sentence">
+        📎 若想直接浏览内容，可从 <a href="https://main-cns-huatihui.com">华体会</a> 的主页开始，按照分区索引逐步探索。
+    </div>
+
+    <!-- footer -->
+    <div class="footnote">
+        · 产品说明 · 简明指南 · 版本参考 2025 ·
+    </div>
+
+</div>
+</body>
+</html>
