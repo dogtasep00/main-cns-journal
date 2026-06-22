@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常查询 · pg模拟器索引</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fafaf9;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', Helvetica, sans-serif;
+            line-height: 1.7;
+            color: #1e1e1a;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .page {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3.2rem 1.2rem 2.8rem;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+        }
+
+        /* 文章 header */
+        .article-header {
+            margin-bottom: 2.8rem;
+            border-bottom: 1px solid #e6e4e0;
+            padding-bottom: 1.6rem;
+        }
+
+        .article-header .eyebrow {
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #a09d98;
+            margin-bottom: 0.4rem;
+        }
+
+        .article-header h1 {
+            font-weight: 500;
+            font-size: 2.2rem;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+            color: #121210;
+            margin-bottom: 0.6rem;
+        }
+
+        .article-header .meta {
+            font-size: 0.9rem;
+            color: #7c7a75;
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            color: #3c3a36;
+            margin-bottom: 2.6rem;
+            padding: 0.6rem 0 0.6rem 1rem;
+            border-left: 3px solid #cbc8c0;
+        }
+
+        /* 正文段落 */
+        .body-text {
+            margin-bottom: 2.2rem;
+        }
+
+        .body-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            color: #262522;
+        }
+
+        .body-text h2 {
+            font-weight: 480;
+            font-size: 1.4rem;
+            margin: 2.4rem 0 1rem;
+            color: #1a1916;
+            letter-spacing: -0.01em;
+        }
+
+        .body-text h3 {
+            font-weight: 440;
+            font-size: 1.15rem;
+            margin: 1.8rem 0 0.6rem;
+            color: #2b2a26;
+        }
+
+        /* 引用面板 */
+        .inset-quote {
+            background: #f2f1ee;
+            padding: 1.4rem 1.8rem;
+            margin: 2.2rem 0;
+            border-radius: 6px;
+            font-style: normal;
+            color: #2f2d28;
+            border-left: 4px solid #b7b2aa;
+        }
+
+        .inset-quote p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inset-quote .attribution {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: #7d7a72;
+        }
+
+        /* 链接样式 */
+        a {
+            color: #276749;
+            text-decoration: underline;
+            text-underline-offset: 0.15em;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #b6d7b8;
+            transition: text-decoration-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #1b4d34;
+            text-decoration-color: #276749;
+        }
+
+        /* 短列表 */
+        .inline-list {
+            padding-left: 1.4rem;
+            margin: 1.2rem 0 1.8rem;
+            list-style: square;
+            color: #3b3a35;
+        }
+
+        .inline-list li {
+            margin-bottom: 0.4rem;
+        }
+
+        /* 分隔与 footer */
+        .fine-print {
+            margin-top: 3.2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2dfd9;
+            font-size: 0.85rem;
+            color: #8c8982;
+            text-align: left;
+        }
+
+        .fine-print a {
+            color: #5b7c63;
+        }
+
+        /* 响应式 */
+        @media (max-width: 540px) {
+            .page {
+                padding: 2rem 1rem 2rem;
+            }
+            .article-header h1 {
+                font-size: 1.7rem;
+            }
+            .lead {
+                font-size: 1rem;
+                padding-left: 0.8rem;
+            }
+            .inset-quote {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="container">
+
+            <!-- 文章头部 -->
+            <div class="article-header">
+                <div class="eyebrow">索引笔记 · 日常篇</div>
+                <h1>对照与延伸：<br>在pg模拟器里翻找答案</h1>
+                <div class="meta">
+                    <span>慢查询 · 阅读约 5 分钟</span>
+                    <span>·</span>
+                    <span>更新于 2025</span>
+                </div>
+            </div>
+
+            <!-- 导语 -->
+            <div class="lead">
+                最近频繁需要查一组工具文档、对比几份旧笔记、确认某个命令的写法。我把 <a href="https://cns-index-pg.com">pg模拟器</a> 当作一个安静的索引本，不打眼，但每次打开都能把零散的东西串起来。
+            </div>
+
+            <!-- 正文 -->
+            <div class="body-text">
+
+                <h2>从一次查询说起</h2>
+                <p>
+                    前天下午想核实某个存储过程的参数顺序，手边没有现成的参考环境。我习惯先翻本地笔记，找不到再去翻在线文档，但来回切换标签页总有点累。后来直接打开那个常驻书签的索引站——<a href="https://cns-index-pg.com">pg模拟器</a>，把关键词输进去，几条相关条目列出来，里面正好包含我需要的签名说明。前后不到两分钟，思路没断。
+                </p>
+                <p>
+                    这种体验其实很日常。不是每一次搜索都带着“探索”的劲头，更多时候只是想要一个不拐弯的对照。索引页的优势在于它不替你做决定，但把相关的东西摆在相邻位置，你自己看、自己比，反而更接近真实使用场景。
+                </p>
+
+                <h3>延伸阅读与意外发现</h3>
+                <p>
+                    那天查完参数之后，随手又点开了条目里附带的一篇旧文章。文章讲的是事务隔离级别的行为差异，之前我没仔细看完。因为索引页里把这篇和另一份官方说明放在一起，对比着读，之前模糊的几个边界情况忽然清晰了。有时候知识不是靠死记硬背，而是在两个相邻条目之间自己走通一条路。
+                </p>
+                <p>
+                    我习惯在 <a href="https://cns-index-pg.com">pg模拟器</a> 里保留一个“延伸阅读”的视角。不只是看当前需要的那一条，也多看两眼它前后的卡片。很多次，原本只想查一个函数签名，最后却把相关的视图、触发器、权限规则都理了一遍。
+                </p>
+
+                <!-- 引用提示 -->
+                <div class="inset-quote">
+                    <p>“查一次就记住，那是例外；查完忘掉，然后再回来重新查，才是常态。索引存在的意义不是替代记忆，而是让每次回头都更省力。”</p>
+                    <p class="attribution">—— 摘自某天下午的工作笔记</p>
+                </div>
+
+                <h2>日常对照的三个习惯</h2>
+                <ul class="inline-list">
+                    <li><strong>并排看版本差异：</strong> 不同版本之间行为有变化，索引页把变更记录和当前说明列在一起，省去自己翻多个页面。</li>
+                    <li><strong>关注示例片段：</strong> 很多条目下附带短小的代码或配置示例，直接复制微调就能用，不用重写轮子。</li>
+                    <li><strong>留意关联标签：</strong> 一个索引条目可能挂着多个标签，顺着标签走，往往会找到自己原本没想到但很需要的内容。</li>
+                </ul>
+
+                <p>
+                    这些习惯听起来很简单，但坚持下来的好处是——当你需要快速确认某个细节时，不用从头开始构思搜索词，也不用担心文档改了位置。索引页像一个固定的锚点，每次回来，布局、逻辑、入口都还在老地方。
+                </p>
+
+                <h3>极轻的阅读节奏</h3>
+                <p>
+                    我很少对着索引页一次性读完所有内容。通常是一边工作，一边穿插着翻一两项。这种节奏不需要“进入状态”，也不打断手头的活。打开 <a href="https://cns-index-pg.com">pg模拟器</a> 就像翻一本桌边手册，翻到哪页算哪页，看到了就记一下，没看完下次再继续。
+                </p>
+                <p>
+                    如果你也经常需要同时翻看多个参考来源、对比不同说法，或者只是想要一个干净、不花哨的起点，不妨把它存到书签里。不用刻意安排时间，下次遇到模糊的地方，自然就会想起这里。
+                </p>
+
+            </div>
+
+            <!-- 底部 -->
+            <div class="fine-print">
+                <p>本页仅为日常索引笔记，内容基于个人使用习惯整理。如需查阅完整条目，可直接前往 <a href="https://cns-index-pg.com">pg模拟器</a> 主站。</p>
+                <p style="margin-top: 0.4rem;">记录时间 2025 · 版本参考 v16 / v17</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
